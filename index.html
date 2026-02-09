@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Экология глазами школьника</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f4f7f5;
+      color: #1b1b1b;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Progress bar */
+    #progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: #2ecc71;
+      width: 0%;
+      z-index: 9999;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 80px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1 { font-size: 52px; margin-bottom: 20px; }
+    h2 { font-size: 38px; margin-bottom: 30px; }
+    p { max-width: 900px; margin-bottom: 20px; font-size: 18px; }
+
+    /* Hero */
+    #block1 {
+      color: white;
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url('https://images.unsplash.com/photo-1508780709619-79562169bc64?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 14px 30px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+      background: #2ecc71;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      background: #27ae60;
+    }
+
+    /* Block 2 */
+    #block2 { background: #ffffff; }
+
+    blockquote {
+      font-style: italic;
+      font-size: 20px;
+      max-width: 900px;
+      background: #f1f5f2;
+      padding: 30px;
+      border-left: 6px solid #2ecc71;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      transition: transform 0.4s ease;
+    }
+
+    blockquote:hover {
+      transform: scale(1.02);
+    }
+
+    /* Problems grid */
+    #block3 { background: #e8f5ec; }
+
+    .problems {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      text-align: left;
+      transition: 0.35s ease;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+    }
+
+    .card h3 { margin-bottom: 10px; }
+
+    /* Facts */
+    #block5 { background: #ffffff; }
+
+    .facts {
+      max-width: 900px;
+      text-align: left;
+    }
+
+    .facts li {
+      margin-bottom: 14px;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: 0.6s ease;
+    }
+
+    .facts li.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Conclusion */
+    #block6 {
+      background: #1f3d2b;
+      color: white;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 14px;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- Block 1 -->
+<section id="block1" class="visible">
+  <h1>Экология глазами школьника</h1>
+  <a href="#block3" class="btn">Экологические проблемы</a>
+</section>
+
+<!-- Block 2 -->
+<section id="block2">
+  <h2>Мнение ученых</h2>
+  <blockquote>
+    «Никто не отрицает, что сегодня на Земле происходит глобальное потепление. Это очевидно уже любому человеку. Климат изменяется, высыхают реки, меняется природа и окружающая среда», – Владимир Семенов.
+  </blockquote>
+</section>
+
+<!-- Block 3 -->
+<section id="block3">
+  <h2>Экологические проблемы</h2>
+  <div class="problems">
+
+    <div class="card"><h3>Изменение климата</h3><p>Повышается уровень океана, учащаются катастрофы, тают ледники.</p></div>
+    <div class="card"><h3>Утрата биоразнообразия</h3><p>Виды исчезают, разрушается естественная среда обитания.</p></div>
+    <div class="card"><h3>Загрязнение атмосферы</h3><p>Выбросы и транспорт ухудшают качество воздуха.</p></div>
+    <div class="card"><h3>Экоцид насекомых</h3><p>Сокращается число опылителей, нарушаются экосистемы.</p></div>
+    <div class="card"><h3>PFAS</h3><p>«Вечные химикаты» накапливаются в воде и организмах.</p></div>
+
+  </div>
+</section>
+
+<!-- Block 5 -->
+<section id="block5">
+  <h2>Интересные факты</h2>
+  <ul class="facts">
+    <li>Микропластик найден в крови и лёгких человека.</li>
+    <li>Половина пригодных земель уже изменена человеком.</li>
+    <li>Потепление влияет на океанические течения.</li>
+    <li>Ледники тают, уменьшая запасы пресной воды.</li>
+    <li>Световое загрязнение нарушает биоритмы.</li>
+    <li>Таяние мерзлоты выбрасывает метан.</li>
+    <li>Растения ускоряют эволюцию из‑за климата.</li>
+    <li>PFAS найдены даже в дождевой воде.</li>
+  </ul>
+</section>
+
+<!-- Block 6 -->
+<section id="block6">
+  <h2>Заключение</h2>
+  <p>Экологический кризис — это вопрос будущего человечества. Климат меняется, исчезают виды, ухудшается состояние воды, почвы и воздуха.</p>
+  <p>Но технологии дают шанс: возобновляемая энергия, переработка и новые материалы помогают замедлить кризис.</p>
+  <p>Будущее зависит от разумного использования ресурсов.</p>
+  <footer>© Экология глазами школьника</footer>
+</section>
+
+<script>
+
+/* Scroll progress bar */
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+});
+
+/* Reveal on scroll */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+
+document.querySelectorAll('section, .card, .facts li').forEach(el => observer.observe(el));
+
+</script>
+
+</body>
+</html>
